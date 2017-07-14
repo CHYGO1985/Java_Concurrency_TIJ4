@@ -1,6 +1,9 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * 
- * Exercise 2. TIJ4 Concurrency.
+ * Exercise 2 & Exercise 4. TIJ4 Concurrency.
  * 
  * @author jingjiejiang
  * @history
@@ -39,10 +42,19 @@ public class TIJ4Exercise2 {
 	}
 
 	public static void main(String[] args) {
+		/*
 		for (int i = 0; i < 8; i ++) {
 			Thread t = new Thread(new FibonacciTask(i));
 			t.start();
 			//System.out.println(t + "finished. **********");
 		}
+		*/
+		
+		// Exercise 4
+		ExecutorService exec = Executors.newFixedThreadPool(8);
+		for (int i = 0; i < 8; i ++) {
+			exec.execute(new FibonacciTask(i));
+		}
+		exec.shutdown();
 	}
 }
