@@ -3,7 +3,7 @@ import java.util.concurrent.Executors;
 
 /**
  * 
- * Exercise 1 & Exercise 4. Thinking in Java 4 Concurrency.
+ * Exercise 1 & Exercise 3. Thinking in Java 4 Concurrency.
  * 
  * @author jingjiejiang
  * @history
