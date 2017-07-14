@@ -1,6 +1,9 @@
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
 /**
  * 
- * Exercise 1. Thinking in Java 4 Concurrency.
+ * Exercise 1 & Exercise 4. Thinking in Java 4 Concurrency.
  * 
  * @author jingjiejiang
  * @history
@@ -16,9 +19,9 @@ public class TIJ4Exercise1 {
 		
 		@Override
 		public void run() {
-			int count = 3;
-			while (count -- > 0) {
-				System.out.println(this + " -- Thread Message!");
+			int count = 1;
+			while (count <= 3) {
+				System.out.println(this + " -- Thread Message" + count ++);
 				Thread.yield();
 			}
 			System.out.println(this + " ** is terminated!");
@@ -27,9 +30,18 @@ public class TIJ4Exercise1 {
 
 	public static void main(String[] args) {
 		
+		/*
 		for (int i = 0; i < 5; i ++) {
 			Thread t = new Thread(new RepeatThreeTimes());
 			t.start();
 		}
+		*/
+		
+		// Exercise 3: use Executor
+		ExecutorService exec = Executors.newFixedThreadPool(5);
+		for (int i = 0; i < 5; i ++) {
+			exec.execute(new RepeatThreeTimes());
+		}
+		exec.shutdown();
 	}
 }
