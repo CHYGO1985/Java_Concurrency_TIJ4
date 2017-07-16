@@ -42,3 +42,8 @@ public class TIJ4Exercise8 {
 		System.out.println("Waiting for LiftOff");
 	}
 }
+
+/* output:
+#1(9), #2(9), Waiting for LiftOff
+#4(9), #0(9), #3(9), #1(8), #2(8), #4(8), #0(8), #3(8), #1(7), #2(7), #4(7), #0(7), #3(7), #1(6), 
+*/
