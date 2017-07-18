@@ -2,13 +2,25 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 
+/**
+ *
+ *	Exersice 9 - set thread priorities by both threadfactory and in run() method.
+ * 
+ * @author jingjiejiang
+ * @history 
+ * 1. Jul 17, 2017
+ */
 class SimplePriorities implements Runnable {
 	private int countDown = 5;
 	private volatile double d; // No optimization
-	//private int priority;
+	private int priority;
 
 	public SimplePriorities(int priority) {
-		//this.priority = priority;
+		this.priority = priority;
+	}
+	
+	public SimplePriorities() {
+		
 	}
 
 	public String toString() {
@@ -17,6 +29,7 @@ class SimplePriorities implements Runnable {
 
 	public void run() {
 		//Thread.currentThread().setPriority(priority);
+		Thread.currentThread().setPriority(priority);
 		while (true) {
 			// An expensive, interruptable operation:
 			for (int i = 1; i < 100000; i++) {
@@ -54,8 +67,6 @@ public class TIJ4Exercise9 {
 		ExecutorService exec = Executors.newCachedThreadPool(new PriorityThreadFac(Thread.MIN_PRIORITY));
 	    for(int i = 0; i < 5; i++)
 	      exec.execute(
-	        new SimplePriorities(Thread.MIN_PRIORITY));
-	    exec.execute(
 	        new SimplePriorities(Thread.MAX_PRIORITY));
 	    exec.shutdown();
 	}
