@@ -55,6 +55,7 @@ public class TIJ4Exercise2 {
 		for (int i = 0; i < 8; i ++) {
 			exec.execute(new FibonacciTask(i));
 		}
+		System.out.println("The results are: ");
 		exec.shutdown();
 	}
 }
