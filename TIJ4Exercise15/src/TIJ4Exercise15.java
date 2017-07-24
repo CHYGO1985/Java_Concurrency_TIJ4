@@ -20,6 +20,7 @@ import java.util.concurrent.Executors;
  */
 
 // different method syn on different objects
+/*
 class Transform {
 	
 	private Object syncObjOne;
@@ -72,10 +73,10 @@ class Transform {
 		this.num = num;
 	}
 }
+*/
 
 // multi methods sync on an identical object.
 // even use yield(), always execure addOne until 10000, as the lock is hold by addOne
-/*
 class Transform {
 	
 	private Object syncObj;
@@ -125,7 +126,6 @@ class Transform {
 		this.num = num;
 	}
 }
-*/
 
 class TransformTaskOne implements Runnable {
 
